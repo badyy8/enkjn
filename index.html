@@ -1,0 +1,460 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Enkjin's Birthday Celebration 🎉</title>
+	<link rel="shortcut icon" href="#">
+	<style>
+        body {
+            font-size: 16px;
+            font-family: 'courier';
+            background-color: #22526e;
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap');
+
+    h1 {
+        font-family: 'Pacifico', cursive;
+        font-size: 2em;
+        color: #ff1493;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 20px;
+        animation: bounce 1s ease infinite;
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    #start {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        background-color: #ff69b4;
+        border: none;
+        padding: 20px 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin: 50px auto; /* This centers the button horizontally */
+        display: block; /* Necessary for margin auto to work */
+        max-width: 300px; /* Limits the width */
+}
+
+    #start:hover {
+        background-color: #ff1493;
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+    }
+
+    .birthday-emoji {
+        font-size: 1.5em;
+        margin: 0 5px;
+        animation: rotate 2s linear infinite;
+        text-align: right;
+        
+    }
+
+    @keyframes rotate {
+        100% { transform: rotate(360deg); }
+    }
+
+    body.text-center {
+        text-align: center; /* This centers the text and inline elements */
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    #cake-holder {
+        margin-top: 40px;
+    }
+
+    #cake-holder .cake-off {
+        font-family: 'Garamond', sans-serif;
+        color: #a1d6e6;
+        opacity: 0;
+        transition: 1s ease-in all;
+    }
+
+    #cake-holder.done .cake-off {
+        opacity: 1;
+        animation: fadeInScale 1s ease-out;
+    }
+
+    @keyframes fadeInScale {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+        
+
+
+
+        .candle {
+            position: absolute;
+            top: -20px; /* Adjust this based on the cake height */
+            left: 40%;
+            transform: translateX(-50%);
+            font-size: 85px;
+            line-height: 1;
+            font-family: 'Comic Sans MS', sans-serif;
+            color: #e74c3c;
+            text-shadow: 
+                3px 3px 0px #c0392b,
+                -3px -3px 0px #f1948a;
+            background: none;
+            padding: 0px;
+            border-radius: 15px;
+            z-index: 9; /* Ensure the candle is above the cake */
+            
+        }
+
+        .flame {
+            position: absolute;
+            background-color: orange;
+            width: 18px;
+            height: 30px;
+            border-radius: 12px 12px 12px 12px / 32px 30px 12px 12px;
+            top: -30px; /* Lowered from -15px to bring closer to the candle */
+            left: 50%;
+            margin-left: -9px;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.5), 0 0 40px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+            transform-origin: 50% 90%;
+            animation: flicker 1s ease-in-out alternate infinite;
+        }
+        .flame2 {
+            position: absolute;
+            background-color: orange;
+            width: 18px;
+            height: 30px;
+            border-radius: 12px 12px 12px 12px / 32px 30px 12px 12px;
+            top: -30px; /* Lowered from -15px to bring closer to the candle */
+            left: 50%;
+            margin-left: -9px;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.5), 0 0 40px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+            transform-origin: 50% 90%;
+            animation: flicker 1.3s ease-in-out alternate infinite;
+        }
+
+
+        .cake {
+            position: relative;
+            width: 300px;
+            height: 240px;
+            margin: 0 auto 40px;
+        }
+
+        .plate {
+            width: 320px;
+            height: 130px;
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            background-color: #7b247e52;
+            border-radius: 50%;
+            box-shadow: 0 2px 0 #b3b3b3, 0 4px 0 #b3b3b3, 0 5px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .cake > * {
+            position: absolute;
+        }
+
+        .layer {
+            position: absolute;
+            display: block;
+            width: 300px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #ff9cb2;
+            box-shadow: 0 2px 0px #ff7a96, 0 4px 0px #ff577c, 0 6px 0px #ff3462, 0 8px 0px #ff1148, 0 10px 0px #e6003e, 0 12px 0px #cc0037, 0 14px 0px #b30030, 0 16px 0px #990029, 0 18px 0px #800022, 0 20px 0px #66001b, 0 22px 0px #4d0014, 0 24px 0px #33000d, 0 26px 0px #1a0007, 0 28px 0px #000000;
+        }
+
+        .layer-top { top: 0px; }
+        .layer-middle { top: 40px; }
+        .layer-bottom { top: 80px; }
+
+        .icing {
+            top: 2px;
+            left: 5px;
+            background-color: #ffc0cb;
+            width: 290px;
+            height: 110px;
+            border-radius: 50%;
+        }
+
+        .icing:before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            right: 5px;
+            bottom: 6px;
+            left: 5px;
+            background-color: #ffd1dc;
+            box-shadow: 0 0 4px #ffe4e9, 0 0 4px #ffe4e9, 0 0 4px #ffe4e9;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .drip {
+            display: block;
+            width: 60px;
+            height: 72px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            background-color: #ffc0cb;
+        }
+
+        .drip1 {
+            top: 63px;
+            left: 5px;
+            transform: skewY(15deg);
+            height: 58px;
+            width: 48px;
+        }
+
+        .drip2 {
+            top: 83px;
+            left: 217px;
+            transform: skewY(-15deg);
+        }
+
+        .drip3 {
+            top: 65px;
+            left: 108px;
+            width: 96px;
+            border-bottom-left-radius: 48px;
+            border-bottom-right-radius: 48px;
+        }
+
+    .birthday-message {
+        font-size: 22px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        position: absolute; /* Keep the message positioned absolutely */
+        bottom: -120px; /* Position it lower */
+        text-align: center; /* Keep it centered */
+        width: 100%; /* Full width to align the text */
+        z-index: 8;
+        text-overflow: ellipsis; 
+        overflow: visible; 
+        white-space: nowrap;
+    }
+
+    .wishes {
+        font-size: 23px;
+        margin-top: 10px;
+        position: absolute; /* Keep the wishes positioned absolutely */
+        bottom: -200px; /* Position it lower */
+        text-align: center; /* Keep it centered */
+        width: 100%; /* Full width to align the text */
+        z-index: 7;
+        text-overflow: ellipsis; 
+        overflow: visible; 
+    }
+
+        @keyframes flicker {
+            0% {
+                transform: skewX(5deg);
+                box-shadow: 0 0 10px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 165, 0, 0.2), 0 0 60px rgba(255, 165, 0, 0.2), 0 0 80px rgba(255, 165, 0, 0.2);
+            }
+            25% {
+                transform: skewX(-5deg);
+                box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+            }
+            50% {
+                transform: skewX(10deg);
+                box-shadow: 0 0 10px rgba(255, 165, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.3), 0 0 60px rgba(255, 165, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.3);
+            }
+            75% {
+                transform: skewX(-10deg);
+                box-shadow: 0 0 10px rgba(255, 165, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4), 0 0 60px rgba(255, 165, 0, 0.4), 0 0 80px rgba(255, 165, 0, 0.4);
+            }
+            100% {
+                transform: skewX(5deg);
+                box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+            }
+        }
+
+        #cake-holder .cake-off {
+            opacity: 0;
+            transition: 1s ease-in all;
+        }
+
+        #cake-holder.done .cake-off {
+            opacity: 1;
+            transition: 1s ease-in all;
+        }
+
+        #cake-holder .cake .flame {
+            opacity: 1;
+            transition: 0.3s ease-in all;
+        }
+
+        #cake-holder.done .flame {
+            opacity: 0;
+        }
+
+        #cake-holder .cake .flame2 {
+            opacity: 1;
+            transition: 0.5s ease-in all;
+        }
+
+        #cake-holder.done .flame2 {
+            opacity: 0;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .cake {
+                width: 240px;
+                height: 192px;
+            }
+
+            .plate {
+                width: 256px;
+                height: 104px;
+            }
+
+            .layer {
+                width: 240px;
+                height: 96px;
+            }
+
+            .icing {
+                width: 232px;
+                height: 88px;
+            }
+
+            .drip {
+                width: 48px;
+                height: 58px;
+            }
+
+            .drip1 {
+                top: 50px;
+                left: 4px;
+                height: 46px;
+                width: 38px;
+            }
+
+            .drip2 {
+                top: 66px;
+                left: 174px;
+            }
+
+            .drip3 {
+                top: 52px;
+                left: 86px;
+                width: 77px;
+            }
+
+            .flame {
+                width: 14px;
+                height: 34px;
+                top: -33px;
+                margin-left: -7px;
+            }
+            .flame2 {
+                width: 14px;
+                height: 34px;
+                top: -33px;
+                margin-left: -7px;
+            }
+        }
+	</style>
+</head>
+
+<body class="text-center">
+    <h1>
+        <span class="birthday-emoji">🎉</span>
+        Birthday Cake for Enkjin
+        <span class="birthday-emoji">🎂</span>
+    </h1>
+</body>
+    <button id="start">🕯️ Press to blow the candle 🌬️</button>
+    <button style="display: none" id="startconsoledebug">enable console logs</button>
+    <button style="display: none" id="stopconsoledebug">disable console logs</button>
+    <div id="cake-holder" style="opacity: 0">
+        <div class="cake">
+            <div class="plate"></div>
+            <div class="layer layer-bottom"></div>
+            <div class="layer layer-middle"></div>
+            <div class="layer layer-top"></div>
+            <div class="icing"></div>
+            <div class="drip drip1"></div>
+            <div class="drip drip2"></div>
+            <div class="drip drip3"></div>
+            <div class="candle" style="left: 60%;">1
+                <div class="flame"></div>
+            </div>
+            <div class="candle" style="left: 42%;">2
+                <div class="flame2"></div>
+        </div>
+        <div class="birthday-message cake-off">
+
+            Happy Birthday, Bebi!
+            <span class="emoji">🎊</span>
+        </div>
+        <div class="wishes cake-off">
+            May your birthday be as sweet as you!
+        </div>
+    </div>
+
+    <script src="cake.js"></script>
+    <script src="volume-meter.js"></script>
+    <script src="audioDetectionConfig.js"></script>
+    <script src="audioDetection.js"></script>
+    <script src="audioStream.js"></script>
+    <script src="demoAudioRecorder.js"></script>
+    <script src="demoAudioDetectionListeners.js"></script>
+    <script src="demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Function to trigger confetti after the flame turns off
+        function triggerConfetti() {
+            confetti({
+                particleCount: 1000,
+                spread: 1500,
+                origin: { y: 0.4 },
+                scalar: 0.7
+            });
+        }
+
+        // Function to simulate the flame turning off after some time
+        function turnOffFlame() {
+            document.getElementById('cake-holder').classList.add('done'); // This turns off the flame by applying the 'done' class
+        }
+
+        // Listen for the 'transitionend' event on the flame element
+        const flame = document.querySelector('.flame');
+        flame.addEventListener('transitionend', function(event) {
+            if (event.propertyName === 'opacity' && getComputedStyle(flame).opacity == 0) {
+                // When the flame's opacity reaches 0, trigger the confetti
+                triggerConfetti();
+            }
+        });
+
+    </script>
+</body>
+</html>
